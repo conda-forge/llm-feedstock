@@ -1,5 +1,5 @@
 {% set name = "llm" %}
-{% set version = "0.14" %}
+{% set version = "0.15" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/llm-{{ version }}.tar.gz
-  sha256: c4150eb47246342846cf57497304ed9afb918a94c5a39049e7422f1961371c09
+  sha256: 9da5c195b514d446f81e63aa48fc2c208a44e791eb16c3529c48ae8d6021e339
 
 build:
   noarch: python
@@ -25,7 +25,7 @@ requirements:
     - click
     - openai >=1.0
     - click-default-group >=1.2.3
-    - sqlite-utils >=3.35.0
+    - sqlite-utils >=3.37
     - sqlite-migrate >=0.1a2
     - pydantic >=1.10.2
     - pyyaml
