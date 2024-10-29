@@ -20,6 +20,7 @@ requirements:
   host:
     - python >=3.8
     - pip
+    - setuptools
   run:
     - puremagic
     - python >=3.8
