@@ -1,5 +1,5 @@
 {% set name = "llm" %}
-{% set version = "0.16" %}
+{% set version = "0.17" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/llm-{{ version }}.tar.gz
-  sha256: 6f8780308d021bb8df755e58e0188ab34af0961f64e303e808f928b456ccc51b
+  sha256: 16ef3c5f0777180d5c28d5b934d92da3af7b5093264b92023c5d06df96eb4be5
 
 build:
   noarch: python
@@ -21,6 +21,7 @@ requirements:
     - python >=3.8
     - pip
   run:
+    - puremagic
     - python >=3.8
     - click
     - openai >=1.0
