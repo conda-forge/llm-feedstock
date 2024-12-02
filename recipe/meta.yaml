@@ -1,13 +1,13 @@
 {% set name = "llm" %}
-{% set version = "0.18" %}
+{% set version = "0.19" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/llm-{{ version }}.tar.gz
-  sha256: 1c4243dea5ec3e7ee50f4fd0b8ccd6475b8f5a6cca2b9aac8270c0e843c0e490
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/llm-{{ version }}.tar.gz
+  sha256: 66c75ec5aa3d88d09175419a65b3742ac3b13992b26ab89e3b5c271b9e7cec82
 
 build:
   noarch: python
