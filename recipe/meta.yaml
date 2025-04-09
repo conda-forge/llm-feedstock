@@ -1,5 +1,5 @@
 {% set name = "llm" %}
-{% set version = "0.23" %}
+{% set version = "0.24.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/llm-{{ version }}.tar.gz
-  sha256: 552e549a46cbcae6f3414b8f5952d6651a7f8b60b5f09444057a7a52793a6c8e
+  sha256: 9ff8bc4dea464efaa5d37cd10a4a4055545f9afa35ac1ba2decf43b16b6e0993
 
 build:
   noarch: python
@@ -22,6 +22,7 @@ requirements:
     - pip
     - setuptools
   run:
+    - condense-json >=0.1.2
     - puremagic
     - python >={{ python_min }}
     - click
