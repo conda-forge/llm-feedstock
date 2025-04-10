@@ -9,6 +9,10 @@ Package license: Apache-2.0
 
 Summary: A CLI utility and Python library for interacting with Large Language Models, including OpenAI, PaLM and local models installed on your own machine.
 
+Development: https://github.com/simonw/llm
+
+Documentation: https://llm.datasette.io/en/stable/
+
 Current build status
 ====================
 
