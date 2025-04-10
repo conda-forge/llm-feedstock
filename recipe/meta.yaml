@@ -22,21 +22,22 @@ requirements:
     - pip
     - setuptools
   run:
-    - condense-json >=0.1.2
-    - puremagic
     - python >={{ python_min }}
+    #- openai >=1.55.3
     - click
-    - openai >=1.55.3
     - click-default-group >=1.2.3
-    - sqlite-utils >=3.37
-    - sqlite-migrate >=0.1a2
-    - pydantic >=2.0.0
-    - pyyaml
-    - pluggy
-    - python-ulid
-    - setuptools
+    - condense-json >=0.1.2
+    - openai >=1.55.3
     - pip
-    - pyreadline3  # [win]
+    - pluggy
+    - puremagic
+    - pydantic >=2.0.0
+    - pyreadline3   # [ win ]
+    - python-ulid
+    - pyyaml
+    - setuptools
+    - sqlite-migrate >=0.1a2
+    - sqlite-utils >=3.37
     # Keep the package noarch but allow for the win only dep
     - __linux  # [linux]
     - __osx    # [osx]
@@ -45,6 +46,7 @@ requirements:
 test:
   imports:
     - llm
+    - llm.default_plugins
   commands:
     - pip check
     - llm --help
@@ -55,8 +57,11 @@ test:
 about:
   home: https://github.com/simonw/llm
   summary: A CLI utility and Python library for interacting with Large Language Models, including OpenAI, PaLM and local models installed on your own machine.
+  license_family: APACHE
   license: Apache-2.0
   license_file: LICENSE
+  doc_url: https://llm.datasette.io/en/stable/
+  dev_url: https://github.com/simonw/llm
 
 extra:
   recipe-maintainers:
