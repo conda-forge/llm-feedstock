@@ -1,0 +1,74 @@
+context:
+  name: llm
+  version: '0.26'
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/llm-${{ version }}.tar.gz
+  sha256: c2e9ddbc582da10c61112c0f983383fa0dc7bee3ca7d6f2ade1a2d003771eb1b
+  patches:
+    - 0001-remove-pip-setuptools.patch
+
+build:
+  noarch: python
+  python:
+    entry_points:
+      - llm = llm.cli:cli
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - click
+    - codense-json >=0.1.3
+    - openai >=1.55.3
+    - click-default-group >=1.2.3
+    - sqlite-utils >=3.37
+    - sqlite-migrate >=0.1a2
+    - pydantic >=2.0.0
+    - pyyaml
+    - pluggy
+    - python-ulid
+    - puremagic
+    # Keep the package noarch but allow for the win only dep
+    - if: linux
+      then:
+        - __linux
+    - if: osx
+      then:
+        - __osx
+    - if: win
+      then:
+        - __win
+        - pyreadline3
+
+tests:
+  - python:
+      imports:
+        - llm
+        - llm.default_plugins
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - script:
+      - llm --help
+
+about:
+  homepage: https://github.com/simonw/llm
+  summary: A CLI utility and Python library for interacting with Large Language Models, including OpenAI, PaLM and local models installed on your own machine.
+  license: Apache-2.0
+  license_file: LICENSE
+  documentation: https://llm.datasette.io/en/stable/
+  repository: https://github.com/simonw/llm
+
+extra:
+  recipe-maintainers:
+    - rxm7706
+    - pavelzw

@@ -1,0 +1,17 @@
+---
+ pyproject.toml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 6872cd874..264996df2 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -34,8 +34,6 @@ dependencies = [
+     "PyYAML",
+     "pluggy",
+     "python-ulid",
+-    "setuptools",
+-    "pip",
+     "pyreadline3; sys_platform == 'win32'",
+     "puremagic",
+ ]
