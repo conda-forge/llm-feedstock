@@ -10,6 +10,7 @@ source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/llm-${{ version }}.tar.gz
   sha256: c2e9ddbc582da10c61112c0f983383fa0dc7bee3ca7d6f2ade1a2d003771eb1b
   patches:
+    # https://github.com/simonw/llm/pull/1180
     - 0001-remove-pip-setuptools.patch
 
 build:
