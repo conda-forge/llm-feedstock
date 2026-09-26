@@ -1,6 +1,6 @@
 context:
   name: llm
-  version: "0.31"
+  version: '0.36'
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/llm-${{ version }}.tar.gz
-  sha256: c7701408fdc53cbdf1db6a43f35c7dd410c291dda36cc38a14db4b482b274fa4
+  sha256: e59ad30875a99be2eea0c880543b1ebfe40eea24ae55d4008eb1e12c77964626
   patches:
     # https://github.com/simonw/llm/pull/1180
     - 0001-remove-pip-setuptools.patch
@@ -29,17 +29,15 @@ requirements:
   run:
     - python >=${{ python_min }}
     - click
-    - condense-json >=0.1.3
-    - openai >=1.55.3
+    - condense-json >=1.1
+    - openai >3
     - click-default-group >=1.2.3
-    - sqlite-utils >=3.37
-    - sqlite-migrate >=0.1a2
+    - sqlite-utils >=4.0
     - pydantic >=2.0.0
     - pyyaml
     - pluggy
     - python-ulid
     - puremagic
-    # Keep the package noarch but allow for the win only dep
     - if: linux
       then:
         - __linux
@@ -51,6 +49,10 @@ requirements:
         - __win
         - pyreadline3
 
+    - pip
+    - setuptools
+    - httpx2
+    - typing_extensions
 tests:
   - python:
       imports:
