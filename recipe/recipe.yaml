@@ -1,6 +1,6 @@
 context:
   name: llm
-  version: "0.37"
+  version: "0.37.1"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/llm-${{ version }}.tar.gz
-  sha256: a8178ad1441e8b0955d5789a4874d5eb30b54be7ba51d2fdfb612c78b05d05d7
+  sha256: 5c74c8dbeb404d18717a9724761dd1f70f36c3dc4176d4d33668f9e448369e29
   patches:
     # https://github.com/simonw/llm/pull/1180
     - 0001-remove-pip-setuptools.patch
